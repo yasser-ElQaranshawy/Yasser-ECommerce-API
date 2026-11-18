@@ -1,0 +1,22 @@
+@Yasser_HostAddress = http://localhost:5122
+
+### 1. إضافة منتج للسلة
+POST {{Yasser_HostAddress}}/api/cart/items
+Content-Type: application/json
+
+{
+  "productId": 1,
+  "quantity": 2
+}
+
+### 2. جلب محتويات السلة
+GET {{Yasser_HostAddress}}/api/cart
+Accept: application/json
+### 3. إتمام الدفع والأوردر (Checkout & Payment)
+POST {{Yasser_HostAddress}}/api/payment/checkout
+Content-Type: application/json
+
+{
+  "userId": "guest_1",
+  "paymentMethod": "CreditCard"
+}
